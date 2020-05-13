@@ -106,7 +106,6 @@ def api_edit(team_id) -> str:
 
 
 @app.route('/api/v1/teams/delete/<int:team_id>', methods=['DELETE'])
-
 def api_delete(team_id) -> str:
     cursor = mysql.get_db().cursor()
     sql_delete_query = """DELETE FROM mlb_teams_2012 WHERE id = %s """
