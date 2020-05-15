@@ -44,7 +44,7 @@ def form_edit_get(team_id):
 @app.route('/edit/<int:team_id>', methods=['POST'])
 def form_update_post(team_id):
     cursor = mysql.get_db().cursor()
-    inputData = (request.form.get('Team'), request.form.get('Payroll_millions'), request.form.get('Wins'), city_id)
+    inputData = (request.form.get('Team'), request.form.get('Payroll_millions'), request.form.get('Wins'), team_id)
     sql_update_query = """UPDATE mlb_teams_2012 team SET team.Team = %s, team.Payroll_millions = %s, team.Wins = %s = %s WHERE team.Team = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
